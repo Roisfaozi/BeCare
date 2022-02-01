@@ -1,16 +1,16 @@
-html,
+@import url('https://fonts.googleapis.com/css2?family=Open + Sans:wght@300;400;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.img-wrapper {
+  width: 50%;
+}
+
+.stretched-link {
+  @apply absolute inset-0 z-10 cursor-pointer;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
+  @apply bg-blue-50;
 }
