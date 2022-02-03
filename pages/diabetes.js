@@ -2,17 +2,18 @@ import Link from 'next/link'
 import React, { Component } from 'react'
 import Navigation from '../components/Navigation'
 
-export default class Hipertensi extends Component {
+export default class Diabetes extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      systole: '',
-      diastole: '',
-      kategori: '',
+      gulaDarah: '',
+      kolestrol: '',
+      gulaDarahKategori: '',
+      kolestrolKategori: '',
 
       errors: {
-        systole: '',
-        diastole: '',
+        gulaDarah: '',
+        kolestrol: '',
       },
     }
 
@@ -27,13 +28,13 @@ export default class Hipertensi extends Component {
     let errors = this.state.errors
     if (value <= 300) {
       switch (id) {
-        case 'systole':
-          errors.systole =
-            value.length < 2 ? 'Harap isi kolom dengan benar' : ''
+        case 'gulaDarah':
+          errors.gulaDarah =
+            value.length < 3 ? 'Harap isi kolom dengan benar' : ''
           break
-        case 'diastole':
-          errors.diastole =
-            value.length < 2 ? 'Harap isi kolom dengan benar' : ''
+        case 'kolestrol':
+          errors.kolestrol =
+            value.length < 3 ? 'Harap isi kolom dengan benar' : ''
           break
 
         default:
@@ -44,41 +45,33 @@ export default class Hipertensi extends Component {
   }
 
   Categories() {
-    const { systole, diastole } = this.state
-    if (systole < 90 && diastole < 60) {
+    const { gulaDarah, kolestrol } = this.state
+
+    if (gulaDarah < 110) {
       this.setState({
-        kategori: 'Hypotensi',
+        gulaDarahKategori: 'Normal',
       })
-    } else if (
-      systole >= 90 &&
-      systole < 120 &&
-      diastole >= 60 &&
-      diastole < 80
-    ) {
+    } else if (110 >= gulaDarah < 200) {
       this.setState({
-        kategori: 'Optimal',
+        gulaDarahKategori: 'Sedang',
       })
-    } else if (
-      systole >= 120 &&
-      systole < 130 &&
-      diastole >= 80 &&
-      diastole < 84
-    ) {
+    } else if (gulaDarah >= 200) {
       this.setState({
-        kategori: 'Normal',
+        gulaDarahKategori: 'Buruk',
       })
-    } else if (
-      systole >= 130 &&
-      systole < 140 &&
-      diastole >= 85 &&
-      diastole < 89
-    ) {
+    }
+
+    if (kolestrol < 200) {
       this.setState({
-        kategori: 'Prehipertensi',
+        kolestrolKategori: 'Baik',
       })
-    } else if (systole >= 140 && diastole >= 90) {
+    } else if (200 >= kolestrol < 240) {
       this.setState({
-        kategori: 'Hipertensi',
+        kolestrolKategori: 'Sedang',
+      })
+    } else if (kolestrol >= 240) {
+      this.setState({
+        kolestrolKategori: 'Buruk',
       })
     }
   }
@@ -89,7 +82,13 @@ export default class Hipertensi extends Component {
     await this.Categories()
   }
   render() {
-    const { systole, diastole, kategori, errors } = this.state
+    const {
+      gulaDarah,
+      kolestrol,
+      gulaDarahKategori,
+      kolestrolKategori,
+      errors,
+    } = this.state
 
     return (
       <>
@@ -98,49 +97,49 @@ export default class Hipertensi extends Component {
         <section className='mx-auto bg-blue-50 flex justify-center items-center pb-40'>
           <div className='container max-w-md h-full pt-14'>
             <h1 className='text-3xl text-indigo-900 font-semibold mb-6'>
-              Form Hipertensi
+              Form Diabetes
             </h1>
 
             <div className='flex justify-between mb-4 '>
-              <label for='systole' className='text-l mr-8 '>
-                Systole
+              <label for='gulaDarah' className='text-l mr-8 '>
+                Gula Darah Sewaktu
               </label>
               <div className='w-2/4'>
                 <input
                   type='number'
-                  name='Systole'
-                  value={systole}
+                  name='gulaDarah'
+                  value={gulaDarah}
                   onChange={this.onChange.bind(this)}
-                  id='systole'
+                  id='gulaDarah'
                   className='border w-full border-gray-200 rounded-lg px-4 py-2 
               bg-white text-sm focus:border-blue-400 focus:outline-none'
-                  placeholder='Systole dalam mmHg'
+                  placeholder='Gula Darah dalam mg/dl'
                   pattern='[0-9]{3}'
                 />
-                {errors.systole.length > 0 && (
-                  <p className='text-red-500 text-sm'>{errors.systole}</p>
+                {errors.gulaDarah.length > 0 && (
+                  <p className='text-red-500 text-sm'>{errors.gulaDarah}</p>
                 )}
               </div>
             </div>
             <div className='flex justify-between mb-4 '>
-              <label for='diastole' className='text-l mr-8 '>
-                Diastole
+              <label for='kolestrol' className='text-l mr-8 '>
+                Kolestrol
               </label>
               <div className='w-2/4'>
                 <input
                   type='number'
-                  name='diastole'
-                  value={diastole}
+                  name='Kolestrol'
+                  value={kolestrol}
                   onChange={this.onChange.bind(this)}
-                  id='diastole'
+                  id='kolestrol'
                   className='border w-full border-gray-200 rounded-lg bg-white  px-4 py-2 
               text-sm focus:border-blue-400 focus:outline-none'
-                  placeholder='Diastole dalam mmHg'
+                  placeholder='Kolestrol dalam mg/dl'
                   pattern='[0-9]{3}'
                 />
 
-                {errors.diastole.length > 0 && (
-                  <p className='text-red-500 text-sm'>{errors.diastole}</p>
+                {errors.kolestrol.length > 0 && (
+                  <p className='text-red-500 text-sm'>{errors.kolestrol}</p>
                 )}
               </div>
             </div>
@@ -152,7 +151,7 @@ export default class Hipertensi extends Component {
                 focus:outline-none w-full p-2 rounded-lg cursor-pointer text-l transition-all duration-200 
                 disabled:bg-gray-300 disabled:cursor-auto'
                 onClick={this.onClick.bind(this)}
-                disabled={systole === '' || diastole === '' ? true : false}>
+                disabled={kolestrol === '' || gulaDarah === '' ? true : false}>
                 Periksa
               </button>
               <Link href='/'>
@@ -164,17 +163,27 @@ export default class Hipertensi extends Component {
               </Link>
             </div>
 
-            {kategori !== '' && (
-              <div className='w-full bg-red-400 p-3 rounded-lg'>
-                <p className='font-lg text-white  '>
-                  Tekanan darah anda anda adalah:{' '}
+            {gulaDarahKategori !== '' && kolestrolKategori !== '' && (
+              <div className='w-full bg-red-400 p-3 rounded-lg mb-4 '>
+                <p className='font-lg text-white m-2 '>
+                  Gula Darah anda adalah:{' '}
+                  <span className='mt-3 font-semibold'>{gulaDarah} mg/dl</span>
+                </p>
+                <p className='font-lg text-white m-2'>
+                  Kategori:{' '}
                   <span className='mt-3 font-semibold'>
-                    {`${this.state.systole}/${this.state.diastole} mmHg`}{' '}
+                    {gulaDarahKategori}
                   </span>
                 </p>
-                <p className='font-lg text-white'>
+                <p className='font-lg text-white m-2 '>
+                  Gula Darah anda adalah:{' '}
+                  <span className='mt-3 font-semibold'>{kolestrol} mg/dl</span>
+                </p>
+                <p className='font-lg text-white m-2'>
                   Kategori:{' '}
-                  <span className='mt-3 font-semibold'>{kategori}</span>
+                  <span className='mt-3 font-semibold'>
+                    {kolestrolKategori}
+                  </span>
                 </p>
               </div>
             )}
