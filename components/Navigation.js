@@ -12,7 +12,11 @@ export default function Navigation() {
       <div className='container mx-auto py-4'>
         <div className='flex flex-stretch items-center'>
           <div className='w-56 flex items-center'>
-            <p className='capitalize font-bold text-lg text-blue-900'>beCare</p>
+            <Link href='/'>
+              <a className='capitalize font-bold text-lg text-blue-900'>
+                beCare
+              </a>
+            </Link>
           </div>
           <div className='w-full'></div>
           <button
@@ -59,13 +63,6 @@ export default function Navigation() {
                     </a>
                   </Link>
                 </li>
-                {/* <li className='mx-3 md:py-0'>
-                  <Link href='/persebaran'>
-                    <a className='text-blue-900 hover:font-medium hover:underline hover:text-blue-400'>
-                      Persebaran
-                    </a>
-                  </Link>
-                </li> */}
               </ul>
             }
           </div>
