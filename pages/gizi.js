@@ -119,7 +119,7 @@ export default class Gizi extends Component {
             </h1>
 
             <div className='flex justify-between mb-4 '>
-              <label for='beratBadan' className='text-l mr-8 '>
+              <label htmlFor='beratBadan' className='text-l mr-8 '>
                 Berat Badan
               </label>
               <div className='w-2/4'>
@@ -141,7 +141,7 @@ export default class Gizi extends Component {
               </div>
             </div>
             <div className='flex justify-between mb-4 '>
-              <label for='tinggiBadan' className='text-l mr-8 '>
+              <label htmlFor='tinggiBadan' className='text-l mr-8 '>
                 Tinggi Badan
               </label>
               <div className='w-2/4'>
@@ -164,7 +164,7 @@ export default class Gizi extends Component {
               </div>
             </div>
             <div className='flex justify-between mb-4 '>
-              <label for='lingkarPerut' className='text-l mr-8 '>
+              <label htmlFor='lingkarPerut' className='text-l mr-8 '>
                 Lingkar Perut
               </label>
               <div className='w-2/4'>
@@ -187,7 +187,7 @@ export default class Gizi extends Component {
             </div>
 
             <div className='flex justify-between mb-8'>
-              <label for='umur' className='text-l mr-8 '>
+              <label htmlFor='umur' className='text-l mr-8 '>
                 Umur
               </label>
               <div className='w-2/4'>
