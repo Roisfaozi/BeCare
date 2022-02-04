@@ -7,7 +7,7 @@ kondisi kesehatan. Aplikasi ini dapat membantu anda untuk mencari
 tahu kondisi kesehatan anda seperti Diabetes, Obesitas dan kadar
 gula darah. Di kembangkan oleh <a href="https://github.com/Roisfaozi"> Rois Faozi </a>.
 
-## Live Demo
+## Live Site <a href="https://becare.netlify.app/"> Demo </a>
 
 ## Fitur yang tersedia
 

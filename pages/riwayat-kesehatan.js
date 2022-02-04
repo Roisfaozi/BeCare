@@ -145,7 +145,6 @@ export default class RiwayatKesehatan extends Component {
       jantung,
       errors,
     } = this.state
-    console.log(options)
     return (
       <>
         <Navigation />
