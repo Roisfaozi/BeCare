@@ -6,10 +6,7 @@ module.exports = withPWA({
     dest: 'public',
     runtimeCaching,
   },
-  i18n: {
-    locales: ['en'],
-    defaultLocale: 'en',
-  },
+
   compress: true,
   reactStrictMode: true,
   target: 'serverless',
