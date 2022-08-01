@@ -15,7 +15,7 @@ export default function Hero() {
             gula darah.
           </h2>
           <div>
-            <button className='w-52 bg-blue-400 text-white hover:bg-blue-500 rounded-full px-8 py-3 mt-4 inline-block flex-none transition duration-200'>
+            <button className='w-52 font-semibold bg-blue-400 text-white hover:bg-blue-500 rounded-full px-8 py-3 mt-4 inline-block flex-none transition duration-200'>
               <a href='#periksa'>Periksa</a>
             </button>
           </div>
