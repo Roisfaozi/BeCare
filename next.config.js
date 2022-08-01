@@ -10,4 +10,15 @@ module.exports = withPWA({
     locales: ['en'],
     defaultLocale: 'en',
   },
+  compress: true,
+  reactStrictMode: true,
+  target: 'serverless',
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/' },
+    }
+  },
 })
